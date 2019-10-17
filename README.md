@@ -23,7 +23,7 @@ A college contains many departments. Each department can offer any number of cou
 ER diagram and RDBMS schema are generated in [erdplus.com](https://erdplus.com/standalone "ERDplus").
 
 ### Proposed Application
-* Each user can login using *phone number* and *password*.
+* Each user can login using *ID* and *password*.
 * Priviledges:
     * *Administrator* can edit all information about *departments*, *courses*, *instructors*, and *students*.
     * *Instructors* can edit attendance and marks of *students* in a *course*.
