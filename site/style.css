@@ -11,11 +11,11 @@ body {
 }
 
 .rect-circ {
-  border-radius: 20px;
+  border-radius: 1.25em;
 }
 
 .rect-round-sm {
-  border-radius: 8px;
+  border-radius: 0.5em;
 }
 
 .rect-round-bg {
@@ -27,6 +27,44 @@ body {
   font-size: 1.2rem;
   margin-top: 20px;
   justify-content: center;
+}
+
+.user-label {
+  width: 10em;
+  height: 2.5em;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 1.25em auto;
+  background: #ccc;
+}
+
+.dept-label {
+  width: 32em;
+  margin: 1.25em auto;
+  display: flex;
+  justify-content: center;
+}
+
+.dept-label span {
+  color: #666;
+  font-weight: 600;
+}
+
+.user-info {
+  width: 20em;
+  margin: 2.5em auto;
+}
+
+.user-info span {
+  display: block;
+  text-align: center;
+  font-weight: 600;
+}
+
+.user-info span:nth-of-type(2) {
+  margin-top: 1.25em;
+  color: #f00;
 }
 
 footer {
@@ -122,7 +160,7 @@ footer span {
 }
 
 .box-form input[type="checkbox"] {
-
+  color: #fff;
 }
 
 
@@ -212,4 +250,288 @@ footer span {
 .btn-reset:hover,
 .btn-reset:active {
   background: #666;
+}
+
+
+/* ===================
+    student-home
+   =================== */
+
+.std-course-container {
+  width: 50.25em;
+  box-sizing: border-box;
+  margin: 1.25em auto 0 auto;
+  border-radius: 10px;
+  border: 0.125em solid #333;
+}
+
+.std-course-info {
+  height: 2.5em;
+  display: flex;
+  flex-direction: row;
+}
+
+.std-course-info > div:first-of-type {
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.std-course-dept {
+  width: 25em;
+  border: 2px solid #666;
+}
+
+.std-course-cred {
+  width: 25em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #666;
+}
+
+.std-course-cred > div {
+  height: 2.25em;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 6px;
+}
+
+.std-course-id {
+  width: 5em;
+  background: #ccc;
+}
+
+.std-course-name {
+  width: 19.75em;
+}
+
+.std-course-data > div {
+  height: 1.25em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1.25em 0;
+}
+
+.std-course-attendance-data:nth-of-type(1) {
+  width: 12.5em;
+}
+
+.std-course-attendance-data:nth-of-type(2),
+.std-course-attendance-data:nth-of-type(3) {
+  width: 15.625em;
+}
+
+.std-course-marks-data:nth-of-type(1) {
+  width: 12.5em;
+}
+
+.std-course-marks-data:nth-of-type(2) {
+  width: 15.625em;
+}
+
+.std-course-marks-data:nth-of-type(3) {
+  width: 7.5em;
+}
+
+.std-course-marks-data:nth-of-type(4) {
+  width: 8.125em;
+}
+
+.std-course-data div span:nth-of-type(even) {
+  font-weight: 600;
+  color: #060;
+}
+
+
+/* ===================
+    instructor-home
+   =================== */
+
+.btn-course-edit {
+  width: 17.5em;
+  height: 2.5em;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-weight: 600;
+  color: #fff;
+  background: #666;
+}
+
+.ins-course-container {
+  width: 45em;
+  display: flex;
+  flex-direction: row;
+  margin: 1.25em auto;
+}
+
+.ins-course-container > div:nth-of-type(2),
+.ins-course-container > div:nth-of-type(3) {
+  height: 2.5em;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  background: #ccc;
+}
+
+.ins-course-container > div:nth-of-type(2) {
+  width: 120px;
+}
+
+.ins-course-container > div:nth-of-type(3) {
+  width: 100px;
+}
+
+
+/* ===================
+    instructor-data
+   =================== */
+
+.ins-course-edit-container {
+  width: 36.25em;
+  display: flex;
+  flex-direction: row;
+  margin: 1.25em auto;
+}
+
+.ins-course-edit-container > div:nth-of-type(2),
+.ins-course-edit-container > div:nth-of-type(3) {
+  height: 2.5em;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #666;
+}
+
+.ins-course-edit-container > div:nth-of-type(2) {
+  width: 7.5em;
+  margin-left: 1.25em;
+}
+
+.ins-course-edit-container > div:nth-of-type(3) {
+  width: 2.5em;
+  font-weight: 600;
+}
+
+.line {
+  height: 0.125em;
+  width: 43.75em;
+  margin: auto;
+  background: #999;
+}
+
+.ins-course-edit-label {
+  width: 41.25em;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 1.25em auto;
+}
+
+.ins-course-edit-label span {
+  text-align: center;
+  color: #666;
+  font-weight: 600;
+}
+
+.ins-course-edit-label span:nth-of-type(1) {
+  width: 3.75em;
+  margin-left: 10px;
+}
+
+.ins-course-edit-label span:nth-of-type(2) {
+  width: 5em;
+  margin-left: 10px;
+}
+
+.ins-course-edit-label span:nth-of-type(3) {
+  width: 5em;
+}
+
+.ins-course-edit-course {
+  width: 41.25em;
+  display: flex;
+  flex-direction: row;
+  margin: 1.25em auto;
+}
+
+.ins-course-edit-course .std-course-id {
+  width: 6.5em;
+}
+
+.ins-course-edit-course .std-course-name {
+  width: 18.25em;
+}
+
+.ins-course-edit-course > div:nth-of-type(2) {
+  margin-left: 1.25em;
+}
+
+.ins-course-edit-course > div:nth-of-type(2),
+.ins-course-edit-course > div:nth-of-type(3) {
+  width: 2.5em;
+  height: 2.5em;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #666;
+}
+
+.ins-course-edit-course > input {
+  width: 3.75rem;
+  box-sizing: border-box;
+  margin-left: 1.25rem;
+  text-align: center;
+  font-size: medium;
+}
+
+
+/* ===================
+    course-info
+   =================== */
+
+.course-info-container {
+  width: 46.25em;
+  margin: 1.25em auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.course-info-course {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1.25em;
+}
+
+.course-info-course > div:first-of-type {
+  width: 2.5em;
+  height: 2.5em;
+  box-sizing: border-box;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #666;
+}
+
+.course-info-course > select {
+  width: 17.5rem;
+  height: 2.5rem;
+  box-sizing: border-box;
+  padding: 0 1rem;
+  border: 2px solid #666;
+  font-size: medium;
+}
+
+.course-info-course > select > option {
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: medium;
 }
