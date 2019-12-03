@@ -1,0 +1,25 @@
+CourseID,CourseName,DeptNo,InstructorID,ClassesTaken
+AE101,Avionics,1,51001,20
+AE102,Aero-acoustics,1,51001,20
+AE103,Statics and Dynamics,1,51002,20
+CE101,Construction Engineering ,2,52001,20
+CE102,Material Science,2,52002,20
+CE103,Measurements,2,52003,20
+CS101,Data Structures and Algorithms ,3,53001,20
+CS102,Digital Electronics ,3,53002,20
+CS102,Computer Architecture ,3,53003,20
+EE101,Power Systems ,4,54001,20
+EE102,Household circuitry,4,54001,20
+EE103,Analog Electronics ,4,54001,20
+EC101,Telecommunications Engineering ,5,55001,25
+EC102,Digital Logic,5,55002,35
+IT101,Data Structures ,6,56001,20
+IT102,Database Management Systems,6,56002,20
+IT103,Operating Systems,6,56003,20
+ME101,Solid Mechanics,7,57001,20
+ME102,Fluid Mechanics,7,57003,20
+ME103,Automobile Engineering ,7,57003,20
+MT101,Mineral Processing ,8,58001,30
+MT102,Thermodynamics,8,58001,30
+MN101,Rock Mechanics ,9,59001,30
+MN102,Drilling and Blasting,9,59002,30
