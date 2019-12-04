@@ -5,9 +5,18 @@ body {
   font-family: 'Be Vietnam', sans-serif;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: relative;
   padding: 0;
   margin: 0;
+}
+
+.page-container {
+  position: relative;
+  min-height: 97.5vh;
+}
+
+.content-wrap {
+  padding-bottom: 2.5em;
 }
 
 .rect-circ {
@@ -68,14 +77,21 @@ body {
 }
 
 footer {
-  position: fixed;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5em;
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }
 
 footer span {
   font-size: 0.8rem;
+}
+
+input[type=submit] {
+  border: none;
 }
 
 
@@ -83,7 +99,7 @@ footer span {
     login-page
    =================== */
 .box-form {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -161,6 +177,12 @@ footer span {
 
 .box-form input[type="checkbox"] {
   color: #fff;
+}
+
+#invalid-login {
+  display: block;
+  color: red;
+  text-align: center;
 }
 
 
@@ -361,6 +383,7 @@ footer span {
   font-weight: 600;
   color: #fff;
   background: #666;
+  cursor: pointer;
 }
 
 .ins-course-container {
@@ -388,6 +411,16 @@ footer span {
   width: 100px;
 }
 
+.ins-course-container .std-course-cred {
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.ins-course-container .std-course-cred:hover,
+.ins-course-container .std-course-cred:active {
+  box-shadow: 0 0 2px 2px #888;
+}
+
 
 /* ===================
     instructor-data
@@ -401,7 +434,8 @@ footer span {
 }
 
 .ins-course-edit-container > div:nth-of-type(2),
-.ins-course-edit-container > div:nth-of-type(3) {
+.ins-course-edit-container > div:nth-of-type(3),
+.ins-course-edit-container > div:nth-of-type(4) {
   height: 2.5em;
   box-sizing: border-box;
   display: grid;
@@ -411,13 +445,20 @@ footer span {
 }
 
 .ins-course-edit-container > div:nth-of-type(2) {
-  width: 7.5em;
+  width: 2.5em;
   margin-left: 1.25em;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .ins-course-edit-container > div:nth-of-type(3) {
+  width: 7.5em;
+}
+
+.ins-course-edit-container > div:nth-of-type(4) {
   width: 2.5em;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .line {
@@ -469,8 +510,9 @@ footer span {
   width: 18.25em;
 }
 
-.ins-course-edit-course > div:nth-of-type(2) {
-  margin-left: 1.25em;
+.ins-course-edit-course > input:nth-of-type(1) {
+  margin-left: 1.75em;
+  margin-right: 0.75em;
 }
 
 .ins-course-edit-course > div:nth-of-type(2),
@@ -497,8 +539,20 @@ footer span {
     course-info
    =================== */
 
+.btn-submit {
+  width: 10em;
+  height: 2.5em;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  margin: 1.25em auto 1.25em auto;
+  background: #666;
+  color: #fff;
+  cursor: pointer;
+}
+
 .course-info-container {
-  width: 46.25em;
+  width: 43.5em;
   margin: 1.25em auto;
   display: flex;
   flex-direction: column;
@@ -511,14 +565,10 @@ footer span {
   margin-top: 1.25em;
 }
 
-.course-info-course > div:first-of-type {
-  width: 2.5em;
-  height: 2.5em;
-  box-sizing: border-box;
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #666;
+.course-info-course input {
+  font-size: 1rem;
+  border: none;
+  text-align: center;
 }
 
 .course-info-course > select {
@@ -534,4 +584,113 @@ footer span {
   height: 2.5rem;
   padding: 0 1rem;
   font-size: medium;
+}
+
+
+/* ===================
+    admin-home
+   =================== */
+
+.admin-buttons {
+  width: 15em;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-admin {
+  width: 15rem;
+  height: 5rem;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  background: #666;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: all 0.5s ease;
+}
+
+.btn-admin:first-of-type {
+  margin-bottom: 4em;
+}
+
+.btn-admin:last-of-type {
+  margin-top: 1em;
+}
+
+.btn-admin:hover,
+.btn-admin:active {
+  background: #777;
+  box-shadow: 0 0 2px 2px #333;
+}
+
+.admin-uid {
+  width: 100%;
+  height: 2.5rem;
+  border: 2px solid #666;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+}
+
+#invalid-user {
+  display: block;
+  margin-top: 0.5em;
+  color: red;
+  text-align: center;
+}
+
+
+/* ===================
+    admin-dept
+   =================== */
+
+.admin-dept-container:first-of-type {
+  margin-top: 2.5em;
+}
+
+.admin-dept-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 1.25em auto;
+}
+
+.admin-dept-name {
+  width: 28em;
+  height: 2.5em;
+  box-sizing: border-box;
+  border: 2px solid #666;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background: #ccc;
+}
+
+.admin-dept-container select {
+  width: 20rem;
+  height: 2.5rem;
+  margin-left: 1.25rem;
+  padding-left: 1em;
+  font-size: 1rem;
+}
+
+
+/* ===================
+    admin-user
+   =================== */
+
+.admin-user-edit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
