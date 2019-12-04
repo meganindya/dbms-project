@@ -19,7 +19,21 @@
 
 <body>
 
-<form class="box-form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
+<?php
+  if (isset($_COOKIE["loggedin"])) {
+    if ($_COOKIE["usertype"] == "student")
+      header("Location: student-home.php");
+
+    else if ($_COOKIE["usertype"] == "instructor")
+      header("Location: instructor-home.php");
+  }
+?>
+
+<div class="page-container">
+
+<div class="content-wrap">
+
+<form class="box-form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
   <div class="sillhouette"><i class="far fa-user"></i></div>
   <div class="box-field rect-round-sm">
     <div class="box-user-sill"><i class="fas fa-user"></i></div>
@@ -29,8 +43,9 @@
     <div class="box-user-sill"><i class="fas fa-lock"></i></div>
     <input type="password"  id="pass" name="password" placeholder="PASSWORD"><br>
   </div>
-  <input type="submit"                      value="LOGIN" class="rect-round-sm"><br>
-  <input type="checkbox"    name="remember"> Remember Me
+  <input type="submit"      value="LOGIN" class="rect-round-sm"><br>
+  <input type="checkbox"    name="remember">Remember Me
+  <span id="invalid-login"></span>
 </form>
 
 <?php
@@ -69,34 +84,63 @@
         }
       }
     }
+
+    if ($username == '00000' && $password == md5("password"))
+      $login = "admin";
     
     $conn->close();
     
     if ($login == "none") {
-      echo "Invalid User ID or Password";
+      echo
+      '<script>
+        document.getElementById("invalid-login").innerHTML = "Invalid User Id or Password";
+      </script>';
+      session_unset();
       session_abort();
     }
     
     else {
-      $_SESSION["userid"]   = $username;
+      echo
+      '<script>
+        document.getElementById("invalid-login").innerHTML = "";
+      </script>';
+      
+      $_SESSION["userid"] = $username;
+
+      if ($_REQUEST["remember"] == "on") {
+        setcookie("loggedin", "yes");
+      }
           
-      if ($login == "student") {
+      if ($login == "admin") {
+        $_SESSION["usertype"] = "admin";
+        if ($_REQUEST["remember"] == "on")
+          setcookie("usertype", "admin");
+
+        header("Location: admin-home.php");
+      }
+
+      elseif ($login == "student") {
         $_SESSION["usertype"] = "student";
+        if ($_REQUEST["remember"] == "on")
+          setcookie("usertype", "student");
+
         header("Location: student-home.php");
       }
       
       elseif  ($login == "instructor") {
         $_SESSION["usertype"] = "instructor";
+        if ($_REQUEST["remember"] == "on")
+          setcookie("usertype", "instructor");
+
         header("Location: instructor-home.php");
       }
     }
   }
 ?>
 
+</div>
 
-<footer>
-  <span>Designed by Department of Information Technology</span>
-</footer>
+</div>
 
 </body>
 
