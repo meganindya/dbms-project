@@ -20,6 +20,13 @@
 <body>
 
 <?php
+  if (isset($_COOKIE["logout"]) && $_COOKIE["logout"] == "yes") {
+    session_unset();
+    session_destroy();
+    setcookie("logout", "", time() - 3600);
+    header("Location: 'index.php'");
+  }
+
   $servname = "localhost";
   $conn = new mysqli($servname, "root", "password", "college_db");
 
@@ -27,11 +34,13 @@
     die("Connection failed: " . $conn->connect_error);
 ?>
 
+<div class="page-container">
+
 <div class="user-label rect-circ">
   <span class="rect-circ">STUDENT</span>
 </div>
 
-<div class="btn-logout rect-circ">
+<div class="btn-logout rect-circ" onClick="logout()">
   <span class="rect-circ">LOGOUT</span>
   <div class="rect-circ">✖</div>
 </div>
@@ -150,9 +159,16 @@
   }
 ?>
 
-<footer>
-  <span>Designed by Department of Information Technology</span>
-</footer>
+</div>
+
+<script>
+  function logout() {
+    document.cookie = "courseid" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = "loggedin" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = "logout=yes";
+    window.location.href = "index.php";
+  }
+</script>
 
 </body>
 
