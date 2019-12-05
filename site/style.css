@@ -191,7 +191,7 @@ input[type=submit] {
    =================== */
 .btn-logout {
   position: absolute;
-  top: 20px;
+  top: 0;
   right: 20px;
   width: 140px;
   height: 40px;
@@ -693,4 +693,54 @@ input[type=submit] {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.user-type-label {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.user-person {
+  width: 48em;
+}
+
+.user-person div {
+  text-align: center;
+  font-weight: 600;
+  color: red;
+  margin: 1em 0 2em 0;
+}
+
+.user-person input {
+  height: 2.5rem;
+  width: 11rem;
+  font-size: 1rem;
+  padding: 0 0.75em;
+}
+
+.user-person select {
+  width: 8rem;
+  height: 2.5rem;
+  margin-left: 0.5em;
+  padding-left: 0.5rem;
+}
+
+.label-phone, .label-dept {
+  margin: 1.5em 0 1em 0;
+  font-weight: 600;
+}
+
+.phno {
+  width: 11rem;
+  height: 2.5rem;
+  font-size: 1rem;
+  padding: 0 0.75em;
+}
+
+.user-dept-sel {
+  width: 20rem;
+  height: 2.5rem;
+  padding-left: 0.5rem;
 }
