@@ -32,7 +32,7 @@
   <div class="rect-circ">✖</div>
 </div>
 
-<form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="admin-buttons">
+<form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>" class="admin-buttons">
   <a href="admin-dept.php" class="btn-admin rect-circ">
     <span>EDIT HEADS</span>
   </a>
@@ -48,7 +48,7 @@
   $servname = "localhost";
   $conn = new mysqli($servname, "root", "password", "college_db");
   
-  $utype = "inv"; $uid = "";
+  $utype = "inv";
   $sql = "SELECT * FROM STUDENT";
   $res = $conn->query($sql);
 
@@ -72,10 +72,8 @@
           break;
         }
       }
-    }
+    }  
   }
-
-  if ($_SESSION["userid"] == "00000") $utype = "admin";
 
   if ($utype == "inv") {
     echo '<script>
@@ -84,11 +82,12 @@
   }
   
   else {
-    $_SESSION["phchanged"] = "false";
     echo
     '<script>
       document.getElementById("invalid-user").innerHTML = "";
     </script>';
+
+    $_SESSION["phchanged"] = "false";
     
     $_SESSION["userid"] = $_POST["userid"];
         
@@ -111,7 +110,7 @@
     document.cookie = "courseid" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     document.cookie = "loggedin" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     document.cookie = "logout=yes";
-    window.location.href = "index.php";
+    window.location.href = 'index.php';
   }
 </script>
 

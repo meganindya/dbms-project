@@ -20,6 +20,12 @@
 <body>
 
 <?php
+  if (isset($_COOKIE["logout"]) && $_COOKIE["logout"] == "yes") {
+    session_unset();
+    session_destroy();
+    setcookie("logout", "", time() - 3600);
+  }
+
   if (isset($_COOKIE["loggedin"])) {
     if ($_COOKIE["usertype"] == "student")
       header("Location: student-home.php");
@@ -33,7 +39,7 @@
 
 <div class="content-wrap">
 
-<form class="box-form" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
+<form class="box-form" method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF']) ?>">
   <div class="sillhouette"><i class="far fa-user"></i></div>
   <div class="box-field rect-round-sm">
     <div class="box-user-sill"><i class="fas fa-user"></i></div>

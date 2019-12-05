@@ -60,15 +60,6 @@
       $conn->query($sql);
     }
 
-    $sql = "SELECT * FROM HEAD";
-    $res = $conn->query($sql);
-
-    if ($res->num_rows > 0) {
-      while ($row = $res->fetch_assoc()) {
-        //print_r($row);
-      }
-    }
-
     $department = array();
     $sql = "SELECT * FROM DEPARTMENT, HEAD
             WHERE HEAD.DeptNo = DEPARTMENT.DeptNo
@@ -127,6 +118,15 @@
 </div>
 
 </div>
+
+<script>
+  function logout() {
+    document.cookie = "courseid" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = "loggedin" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+    document.cookie = "logout=yes";
+    window.location.href = 'index.php';
+  }
+</script>
 
 </body>
 

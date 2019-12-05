@@ -20,13 +20,6 @@
 <body>
 
 <?php
-  if (isset($_COOKIE["logout"]) && $_COOKIE["logout"] == "yes") {
-    session_unset();
-    session_destroy();
-    setcookie("logout", "", time() - 3600);
-    header("Location: 'index.php'");
-  }
-
   $servname = "localhost";
   $conn = new mysqli($servname, "root", "password", "college_db");
 
@@ -129,7 +122,7 @@
   
           <div class="std-course-attendance-data">
             <span>Attendance: </span>
-            <span>'.(intval($courses[$i][4]) / intval($courses[$i][3]) * 100).'%</span>
+            <span>'.round(intval($courses[$i][4]) / intval($courses[$i][3]) * 100).'%</span>
           </div>
         </div>
   
@@ -166,7 +159,7 @@
     document.cookie = "courseid" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     document.cookie = "loggedin" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     document.cookie = "logout=yes";
-    window.location.href = "index.php";
+    window.location.href = 'index.php';
   }
 </script>
 
