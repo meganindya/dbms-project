@@ -64,21 +64,6 @@
     $sql .= $_SESSION["userid"]."'";
     $conn->query($sql);
   }
-
-  elseif ($_SESSION["usertype"] == "student") {
-    $sql = "SELECT COUNT(*) FROM COURSE";
-    $res = $conn->query($sql);
-    $res = $res->fetch_assoc()['COUNT(*)'];
-
-    /*for ($i = 0; $i < $res; $i++) {
-      if ($_POST["chk".$i] == "off") {
-        $sql = "DELETE ";
-      }
-      if ($_POST["chk".$i] == "on") {
-        $sql = "UPDATE ";
-      }
-    }*/
-  }
 ?>
 
 <div class="page-container">
@@ -148,7 +133,7 @@
       <input type="text" name="mname" value="'.$userarray[2].'" class="edit-id rect-round-sm">
       <input type="text" name="lname" value="'.$userarray[3].'" class="edit-id rect-round-sm">
       
-      <select name="ugend">';
+      <select name="ugend" class="rect-round-sm">';
         if ($userarray[4] == 'M')
           echo '<option selected="selected">Male</option>';
         else
@@ -183,17 +168,17 @@
     }
 
     echo
-    '<div class="label-phone"><span>Phones:</span></div>
-    <input type="text" name="ph1" value="'.$phones[0].'" maxlength="10">
-    <input type="text" name="ph2" value="'.$phones[1].'" maxlength="10">
-    <input type="text" name="ph3" value="'.$phones[2].'" maxlength="10">';
+    '<div class="label-phone"><span>PHONES:</span></div>
+    <input type="number" class="phno rect-round-sm" name="ph1" value="'.$phones[0].'" maxlength="10">
+    <input type="number" class="phno rect-round-sm" name="ph2" value="'.$phones[1].'" maxlength="10">
+    <input type="number" class="phno rect-round-sm" name="ph3" value="'.$phones[2].'" maxlength="10">';
 
     $_SESSION["phchanged"] = "true";
 
 
     if ($_SESSION["usertype"] == "instructor") {
       echo '<div class="label-dept"><span>DEPARTMENT:</span></div>
-      <select name="insdept">';
+      <select class="user-dept-sel rect-round-sm" name="insdept">';
 
       $departments = array();
       $sql = "SELECT * FROM DEPARTMENT ORDER BY DeptNo";
@@ -224,63 +209,6 @@
       }
       echo '</select>';
     }
-
-    elseif ($_SESSION["usertype"] == "student") {
-      echo
-      '<div class="label-dept"><span>COURSES:</span></div>
-      <div class="course-list">';
-        $sql = "SELECT CourseID, CourseName FROM COURSE ORDER BY CourseID";
-        $res = $conn->query($sql);
-
-        $courseslist = array();
-        if ($res->num_rows > 0) {
-          while ($row = $res->fetch_assoc()) {
-            array_push($courseslist, array($row['CourseID'], $row['CourseName']));
-          }
-        }
-
-        $sql = "SELECT CourseID FROM UNDERTAKES WHERE StudentID = '";
-        $sql .= $_SESSION["userid"]."'";
-        $res = $conn->query($sql);
-
-        $activecourses = array();
-        if ($res->num_rows > 0) {
-          while ($row = $res->fetch_assoc()) {
-            array_push($activecourses, $row['CourseID']);
-          }
-        }
-
-        for ($i = 0; $i < COUNT($courseslist); $i++) {
-          $found = false;
-          for ($j = 0; $j < COUNT($activecourses); $j++) {
-            if ($courseslist[$i][0] == $activecourses[$j]) {
-              $found = true;
-              break;
-            }
-          }
-          if ($found) array_push($courseslist[$i], "yes");
-          else array_push($courseslist[$i], "no");
-        }
-
-        for ($i = 0; $i < COUNT($courseslist); $i++) {
-          echo '<div class="rect-round-sm course-entry">';
-            if ($courseslist[$i][2] == "no")
-              echo '<input type="checkbox" name="chk'.$i.'">';
-            else
-              echo '<input type="checkbox" name="chk'.$i.'" checked>';
-            /*echo '<div class="rect-round-sm std-course-cred">
-              <div class="rect-round-sm std-course-id">
-                <span>'.$courseslist[$i][0].'</span>
-              </div>
-
-              <div class="std-course-name">
-                <span>'.$courseslist[$i][1].'</span>
-              </div>
-            </div>*/
-          echo '</div>';
-        }
-      echo '</div>';
-    }
   ?>
 </form>
 
@@ -293,7 +221,7 @@
     document.cookie = "courseid" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     document.cookie = "loggedin" + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
     document.cookie = "logout=yes";
-    window.location.href = "index.php";
+    window.location.href = 'index.php';
   }
 </script>
 
